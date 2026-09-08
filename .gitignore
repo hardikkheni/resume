@@ -1,0 +1,23 @@
+# LaTeX temp / build files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.out
+*.toc
+*.bbl
+*.blg
+*.fot
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.dvi
+*.bcf
+*.run.xml
+*.xdv
+
+# Editor / OS
+.DS_Store

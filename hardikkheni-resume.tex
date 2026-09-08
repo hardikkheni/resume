@@ -1,0 +1,295 @@
+%%%%
+% MTecknology's Resume
+%%%%
+% Author: Michael Lustfield
+% License: CC-BY-4
+% - https://creativecommons.org/licenses/by/4.0/legalcode.txt
+%%%%
+
+\documentclass[letterpaper,10pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN_FILE: mteck.sty
+%% NOTE: Everything between here and END_FILE can
+%% be relocated to "mteck.sty" and then included with:
+%\usepackage{mteck}
+
+% Dependencies
+% NOTE: Some packages (lastpage, hyperref) require second build!
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{lastpage}
+
+% Sans-Serif
+%\usepackage[sfdefault]{FiraSans}
+%\usepackage[sfdefault]{roboto}
+%\usepackage[sfdefault]{noto-sans}
+%\usepackage[default]{sourcesanspro}
+
+% Serif
+\usepackage{CormorantGaramond}
+\usepackage{charter}
+
+% Colors
+% Use with \color{Name}
+% Can wrap entire heading with {\color{accent} [...] }
+\usepackage{xcolor}
+\definecolor{accentTitle}{HTML}{0e6e55}
+\definecolor{accentText}{HTML}{0e6e55}
+\definecolor{accentLine}{HTML}{a16f0b}
+
+% Misc. Options
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}
+
+% Adjust Margins
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\textheight}{1.4in}
+
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\footskip}{3.7pt}
+\raggedbottom
+\raggedright
+
+% ATS Readability
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+%-----------------%
+% Custom Commands %
+%-----------------%
+
+% Centered title along with subtitle between HR
+% Usage: \documentTitle{Name}{Details}
+\newcommand{\documentTitle}[2]{
+  \begin{center}
+    {\Huge\color{accentTitle} #1}
+    \vspace{10pt}
+    {\color{accentLine} \hrule}
+    \vspace{2pt}
+    %{\footnotesize\color{accentTitle} #2}
+    \footnotesize{#2}
+    \vspace{2pt}
+    {\color{accentLine} \hrule}
+  \end{center}
+}
+
+% Create a footer with correct padding
+% Usage: \documentFooter{\thepage of X}
+\newcommand{\documentFooter}[1]{
+  \setlength{\footskip}{10.25pt}
+  \fancyfoot[C]{\footnotesize #1}
+}
+
+% Simple wrapper to set up page numbering
+% Usage: \numberedPages
+% WARNING: Must run pdflatex twice!
+\newcommand{\numberedPages}{
+  \documentFooter{\thepage/\pageref{LastPage}}
+}
+
+% Section heading with horizontal rule
+% Usage: \section{Title}
+\titleformat{\section}{
+  \vspace{-5pt}
+  \color{accentText}
+  \raggedright\large\bfseries
+}{}{0em}{}[\color{accentLine}\titlerule]
+
+% Section heading with separator and content on same line
+% Usage: \tinysection{Title}
+\newcommand{\tinysection}[1]{
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+  {\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
+}
+
+% Indented line with arguments left/right aligned in document
+% Usage: \heading{Left}{Right}
+\newcommand{\heading}[2]{
+  \hspace{10pt}#1\hfill#2\\
+}
+
+% Adds \textbf to \heading
+\newcommand{\headingBf}[2]{
+  \heading{\textbf{#1}}{\textbf{#2}}
+}
+
+% Adds \textit to \heading
+\newcommand{\headingIt}[2]{
+  \heading{\textit{#1}}{\textit{#2}}
+}
+
+% Template for itemized lists
+% Usage: \begin{resume_list} [items] \end{resume_list}
+\newenvironment{resume_list}{
+  \vspace{-7pt}
+  \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=30pt]
+}{
+  \end{itemize}
+  %\vspace{-2pt}
+}
+
+% Formats an item to use as an itemized title
+% Usage: \itemTitle{Title}
+\newcommand{\itemTitle}[1]{
+  \item[] \underline{#1}\vspace{4pt}
+}
+
+% Bullets used in itemized lists
+\renewcommand\labelitemi{--}
+
+%% END_FILE: mteck.sty
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%===================%
+% John Doe's Resume %
+%===================%
+
+%\numberedPages % NOTE: lastpage requires a second build
+%\documentFooter{\thepage of 2} % Does similar without using lastpage
+\begin{document}
+
+  %---------%
+  % Heading %
+  %---------%
+
+  \documentTitle{Hardik Kheni}{
+    % Web Version
+    %\raisebox{-0.05\height} \faPhone\ [redacted - web copy] ~
+    %\raisebox{-0.15\height} \faEnvelope\ [redacted - web copy] ~
+    %%
+    \href{tel:9624130428}{
+      \raisebox{-0.05\height} \faPhone\ 9624130428} ~ | ~
+    \href{mailto:hardikkheni.work@gmail.com}{
+      \raisebox{-0.15\height} \faEnvelope\ hardikkheni.work@gmail.com} ~ | ~
+    \href{https://linkedin.com/in/hardik-kheni-2313b0165/}{
+      \raisebox{-0.15\height} \faLinkedin\ hardik-kheni-2313b0165} ~ | ~
+    \href{https://github.com/hardikkheni}{
+      \raisebox{-0.15\height} \faGithub\ hardikkheni} ~ | ~
+     \href{https://leetcode.com/u/hardikkheni/}{
+      \raisebox{-0.15\height} \faCode\ hardikkheni}
+  }
+
+  % %---------%
+  % % Summary %
+  % %---------%
+
+  % \tinysection{Summary}
+  % Simplified version of a monstrosity that I built back in college using current best practices.
+
+  %--------%
+  % Skills %
+  %--------%
+
+  \section{Skills}
+
+  \begin{multicols}{2}
+    \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=75pt]
+        \item[\textbf{Languages}] C, C++, Java, JS, TS, PHP, SQL
+        \item[\textbf{Frontend}] HTML/CSS, React.js, Vue.js, Next.js, Tailwind CSS, TanStack Query, Redux Toolkit, Shadcn
+        \item[\textbf{Backend}] Nest.js, Node.js, Express.js, REST, GraphQL, gRPC, Socket.io
+        \item[\textbf{Databases}] PostgreSQL, MySQL, MongoDB, Redis
+        \item[\textbf{Messaging}] RabbitMQ, Kafka
+        \item[\textbf{Cloud}] AWS (EC2, S3, RDS, IAM, Pipeline), GCP, Cloudinary
+        \item[\textbf{DevOps}] Docker, Kubernetes (K8s), GitHub Actions
+        \item[\textbf{Testing}] Jest, Mocha, Vitest
+        \item[\textbf{Tools}] Webpack, Babel, Vite, Eslint, Prettier
+    \end{itemize}
+  \end{multicols}
+
+  %------------%
+  % Experience %
+  %------------%
+
+  \section{Experience}
+
+  \headingBf{Ailoitte}{Feb 2025 -- Present}
+  \headingIt{Senior Software Engineer (SSE)}{}
+  \begin{resume_list}
+    \item Developed comprehensive system documentation including \textbf{tech stack evaluations}, \textbf{POCs}, \textbf{architecture designs}, and \textbf{cost analysis}, ensuring scalable and cost-effective solutions.  
+    \item Led module development and integrated \textbf{AI-driven recommendation features} with LangChain, improving functionality and user experience.
+    \item Mentored junior and mid-level developers through code reviews and best practices, and conducted technical interviews to strengthen the team.
+    \itemTitle{Clients: Mana, Communicate, Kargone}
+  \end{resume_list}
+
+  \headingBf{ HMR Technologies }{Aug 2021 -- Jan 2025}
+  \headingIt{Software Developer Engineer (SDE)}{}
+  \begin{resume_list}
+    \item Built full-stack applications with \textbf{MERN} and \textbf{Nest.js}, which improved code readability and reduced maintenance effort.
+    \item Used \textbf{Vite} and \textbf{esbuild}, cutting build times and making deployments faster.
+    \item Implemented \textbf{JWT}/\textbf{OAuth2} authentication with \textbf{RBAC} \& \textbf{ABAC}, improving security and flexible access control.
+    \item Optimized APIs, which lowered response times and reduced server load.
+    \item Integrated AWS services (\textbf{S3}, \textbf{EC2}) and automated deployments, reducing manual setup time and increasing reliability.
+    \item Establishing common standards and enhancing development strategies to improve project delivery timelines and quality in a service-based environment.
+    \item introduced coding standards and better workflows, helping teams deliver projects quicker and with fewer errors.
+    \itemTitle{Clients: Seedsuite, Gimma, Biblo}
+  \end{resume_list}
+
+
+  \headingBf{ Omeecron Solutions }{Aug 2018 -- Aug 2021}
+  \headingIt{Full Stack Developer}{}
+  \begin{resume_list}
+    \item Developed backend systems using \textbf{Node.js} and \textbf{Laravel}, improving API efficiency and server response times.
+    \item Built dynamic frontend interfaces with \textbf{React} and \textbf{vanilla JavaScript}, enhancing user experience.
+    \item Optimized \textbf{MySQL} and \textbf{PostgreSQL} queries, improving database performance and reducing latency.
+    \item Integrated \textbf{AWS S3} and \textbf{EC2} for file storage and server hosting, reducing manual deployment overhead.
+    \item Integrated third-party services like \textbf{Stripe} and \textbf{SendGrid}, enabling payments and email notifications.
+    \item Automated basic deployment scripts using \textbf{bash} and \textbf{cron jobs}, cutting repetitive tasks and downtime.
+    \item Migrated legacy \textbf{PHP} applications to \textbf{Laravel}, improving maintainability and security.
+    \itemTitle{Clients: Brisco Production, ClearIT}
+   \end{resume_list}
+
+  %-----------%
+  % Education %
+  %-----------%
+
+  \section{Education}
+
+  \headingBf{GTU}{} % Note: Adding year(s) exposes an implied age
+  \headingIt{Bachelor of Engineering in Information Technology(2014-2018)}{}
+  % \headingIt{Minors: Networking ; Network Security}{}
+
+  \vspace{5pt}
+  \headingBf{Certifications}{}
+  \begin{resume_list}
+    \item \href{https://media.licdn.com/dms/image/v2/D4D2DAQHrQwTcd-e7rg/profile-treasury-document-images_800/profile-treasury-document-images_800/1/1732011914044?e=1755734400&v=beta&t=0I4IlLRKCqe2unpvv7NCE67xNogUzAB81fv6vsQCXTI}{
+      \raisebox{-0.15\height} \faCertificate\ \textbf{DSA \& System Design \hspace{2pt}- Heycoach}}
+  \end{resume_list}
+
+  %----------------------------%
+  % Extracurricular Activities %
+  %----------------------------%
+
+  % \section{Projects}
+
+  % \headingBf{Hospital / Health Science IRB}{Mar 2015 -- Present}
+  % \begin{resume_list}
+  %   \item Served as non-scientific/unaffiliated patient-representative
+  %   \item Reviewed patient consent forms for completeness, accuracy, and clarity
+  %   \item Became familiar with industry standards and regulations (OHRP, HIPAA)
+  % \end{resume_list}
+
+  % \headingBf{Debian Linux}{Jan 2001 -- Present}
+  % \begin{resume_list}
+  %   \item Maintained packages in Debian repositories
+  %   \item Reviewed and sponsored packages on behalf of prospective Developers
+  %   \item Resolved bugs reported in bug tracking system
+  % \end{resume_list}
+
+\end{document}
